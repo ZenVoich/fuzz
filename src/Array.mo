@@ -2,7 +2,6 @@ import Array "mo:base/Array";
 
 import Types "./types";
 import FuzzNat "./Nat";
-import {range} "./utils";
 
 module {
 	public class FuzzArray(generator: Types.Generator) {

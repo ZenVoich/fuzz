@@ -10,10 +10,12 @@ module {
 			17;
 		};
 
+		// note: Float has no lower bound, but we need some default value for the random() function
 		public func min(): Float {
 			-4294967296;
 		};
 
+		// note: Float has no upper bound, but we need some default value for the random() function
 		public func max(): Float {
 			4294967295;
 		};

@@ -1,5 +1,3 @@
-import Array "mo:base/Array";
-
 module {
 	public func range(value: Int, min: Int, max: Int): Int {
 		assert(min < max);

@@ -8,8 +8,8 @@ module {
 	public class FuzzBlob(generator: Types.Generator) {
 		let fuzzNat8 = FuzzNat8.FuzzNat8(generator);
 
-		public func randomBlob(size: Nat): [T] {
-			Array.tabulate<Nat8>(size, func(_) = fuzzNat8.random());
+		public func randomBlob(size: Nat): Blob {
+			Blob.fromArray(Array.tabulate<Nat8>(size, func(_) = fuzzNat8.random()));
 		};
 	};
 };
