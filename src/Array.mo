@@ -11,7 +11,7 @@ module {
 			Array.tabulate<T>(size, func(_) = fn());
 		};
 
-		public func randomVal<T>(array: [T]): T {
+		public func randomValue<T>(array: [T]): T {
 			randomEntry(array).1
 		};
 

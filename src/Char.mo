@@ -27,19 +27,19 @@ module {
 		let fuzzArray = FuzzArray.FuzzArray(generator);
 
 		public func randomAlphabetic(): Char {
-			fuzzArray.randomVal(alphabet);
+			fuzzArray.randomValue(alphabet);
 		};
 
 		public func randomAlphanumeric(): Char {
-			fuzzArray.randomVal(alphanumeric);
+			fuzzArray.randomValue(alphanumeric);
 		};
 
 		public func randomAscii(): Char {
-			fuzzArray.randomVal(ascii);
+			fuzzArray.randomValue(ascii);
 		};
 
 		public func randomUnicode(set: [Char]): Char {
-			fuzzArray.randomVal(set);
+			fuzzArray.randomValue(set);
 		};
 	};
 };

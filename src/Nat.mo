@@ -1,5 +1,6 @@
 import Nat "mo:base/Nat";
 import Int "mo:base/Int";
+import Debug "mo:base/Debug";
 
 import Types "./types";
 import {range} "./utils";
@@ -10,13 +11,12 @@ module {
 			0;
 		};
 
-		// note: Nat has no upper bound, but we need some default value for the random() function
 		public func max(): Nat {
-			2 ** 128 - 1;
+			Debug.trap("Nat has no max value");
 		};
 
 		public func random(): Nat {
-			randomRange(min(), max());
+			randomRange(min(), 2 ** 128 - 1);
 		};
 
 		public func randomRange(min: Nat, max: Nat): Nat {

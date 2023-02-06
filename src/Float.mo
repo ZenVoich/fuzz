@@ -1,5 +1,6 @@
 import Nat8 "mo:base/Nat8";
 import Float "mo:base/Float";
+import Debug "mo:base/Debug";
 
 import Types "./types";
 import {rangeFloat; makeInt} "./utils";
@@ -10,18 +11,16 @@ module {
 			17;
 		};
 
-		// note: Float has no lower bound, but we need some default value for the random() function
 		public func min(): Float {
-			-4294967296;
+			Debug.trap("Float has no min value");
 		};
 
-		// note: Float has no upper bound, but we need some default value for the random() function
 		public func max(): Float {
-			4294967295;
+			Debug.trap("Float has no max value");
 		};
 
 		public func random(): Float {
-			randomRange(min(), max());
+			randomRange(-4294967296, 4294967295);
 		};
 
 		public func randomRange(min: Float, max: Float): Float {

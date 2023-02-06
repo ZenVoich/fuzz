@@ -1,20 +1,20 @@
+import Debug "mo:base/Debug";
+
 import Types "./types";
 import {range; makeInt} "./utils";
 
 module {
 	public class FuzzInt(generator: Types.Generator) {
-		// note: Int has no lower bound, but we need some default value for the random() function
 		public func min(): Int {
-			2**128 * -1;
+			Debug.trap("Int has no min value");
 		};
 
-		// note: Int has no upper bound, but we need some default value for the random() function
 		public func max(): Int {
-			2**128 - 1;
+			Debug.trap("Int has no max value");
 		};
 
 		public func random(): Int {
-			randomRange(min(), max());
+			randomRange(2**128 * -1, 2**128 - 1);
 		};
 
 		public func randomRange(min: Int, max: Int): Int {
