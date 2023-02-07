@@ -150,10 +150,31 @@ Debug.print(debug_show fuzz.int.random());
 
 Debug.print(debug_show "------------------- float -------------------");
 Debug.print(debug_show fuzz.float.random());
+Debug.print(debug_show fuzz.float.random());
+Debug.print(debug_show fuzz.float.random());
+Debug.print(debug_show fuzz.float.random());
+Debug.print(debug_show fuzz.float.random());
+Debug.print(debug_show fuzz.float.random());
+
+Debug.print(debug_show "------------------- float.randomRange -------------------");
+Debug.print(debug_show fuzz.float.randomRange(0.5, 0.7));
+Debug.print(debug_show fuzz.float.randomRange(0.5, 0.7));
+Debug.print(debug_show fuzz.float.randomRange(0.5, 0.7));
+Debug.print(debug_show fuzz.float.randomRange(0.5, 0.7));
+Debug.print(debug_show fuzz.float.randomRange(0.5, 0.7));
+Debug.print(debug_show fuzz.float.randomRange(0.5, 0.7));
+Debug.print(debug_show fuzz.float.randomRange(0.5, 0.7));
+Debug.print(debug_show fuzz.float.randomRange(0.5, 0.7));
+Debug.print(debug_show fuzz.float.randomRange(0.5, 0.7));
+Debug.print(debug_show fuzz.float.randomRange(0.5, 0.7));
+Debug.print(debug_show fuzz.float.randomRange(0.5, 0.7));
+Debug.print(debug_show fuzz.float.randomRange(0.5, 0.7));
+Debug.print(debug_show fuzz.float.randomRange(0.5, 0.7));
+Debug.print(debug_show fuzz.float.randomRange(0.5, 0.7));
 
 Debug.print(debug_show "------------------- array -------------------");
-Debug.print(debug_show fuzz.array.randomArray<Nat8>(10, fuzz.nat8.random));
-Debug.print(debug_show fuzz.array.randomArray<Nat32>(10, fuzz.nat32.random));
+Debug.print(debug_show fuzz.array.randomArray(10, fuzz.nat8.random));
+Debug.print(debug_show fuzz.array.randomArray(10, fuzz.nat32.random));
 type MyType = {
 	x: Nat8;
 	b: Bool;

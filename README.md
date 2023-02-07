@@ -52,9 +52,9 @@ let randFloat = fuzz.float.random();
 Generate a random number in the range (both bounds inclusive)
 ```motoko
 let randNat = fuzz.nat.randomRange(2**128, 2**256);
-let randNat32 = fuzz.nat32.random(1_100, 10_000);
-let randInt16 = fuzz.int16.random(8, 99);
-let randFloat = fuzz.float.random();
+let randNat32 = fuzz.nat32.randomRange(1_100, 10_000);
+let randInt16 = fuzz.int16.randomRange(8, 99);
+let randFloat = fuzz.float.randomRange(0.5, 10.88);
 ```
 
 Get min/max value for the type
@@ -153,7 +153,7 @@ let text = fuzz.text.randomAlphanumeric(3); // => "po8"
 let text = fuzz.text.randomAlphanumeric(3); // => "68r"
 ```
 
-Return random ascii text of given size (`[a-zA-Z0-9!"#$%&'()*+,-./,':;<=>?[\]^_`{|}~]`)
+Return random ascii text of given size (```[a-zA-Z0-9!"#$%&'()*+,-./,':;<=>?[\]^_`{|}~]```)
 ```motoko
 let text = fuzz.text.randomAscii(2); // => "t@"
 let text = fuzz.text.randomAscii(2); // => "pl"
