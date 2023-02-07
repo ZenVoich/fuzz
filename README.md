@@ -162,7 +162,7 @@ let text = fuzz.text.randomAscii(2); // => "pl"
 ### Principal
 Generate a random `Principal` of a given blob size
 ```motoko
-let principal = fuzz.principal.random(10);
+let principal = fuzz.principal.randomPrincipal(10);
 Principal.toText(principal); // => "4u4hq-3aaae-bagaz-jaeba-kaq"
 ```
 
