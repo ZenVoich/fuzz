@@ -6,7 +6,7 @@ module {
 
 	public func rangeFloat(value: Float, min: Float, max: Float): Float {
 		assert(min < max);
-		value % (max - min + 1) + min;
+		value % (max - min) + min;
 	};
 
 	// make possibly negative int
