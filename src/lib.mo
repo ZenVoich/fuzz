@@ -92,11 +92,12 @@ module Fuzz {
 	};
 
 	public func createGenerator(seed: Nat): Types.Generator {
+		let prime = 456209410580464648418198177201;
+		let prime2 = 4451889979529614097557895687536048212109;
 		var prev = seed;
 		{
 			next = func(): Nat {
-				let prime = 4775794674342947389566259093739658969181;
-				let cur = (prev * prime) % 2**126;
+				let cur = (prev * prime + 5) % prime2;
 				prev := cur;
 				cur;
 			};

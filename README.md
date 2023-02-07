@@ -73,7 +73,7 @@ let arrayNat8 = fuzz.array.randomArray(1000, fuzz.nat8.random);
 
 Generate a random array of size 500 with custom type values
 ```motoko
-let MyType = {
+type MyType = {
 	x: Nat;
 	b: Bool;
 };
