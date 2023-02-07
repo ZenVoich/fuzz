@@ -1,2 +1,9 @@
+[package]
+name = "fuzz"
+version = "0.1.0"
+description = "Motoko fuzzing library"
+repository = "https://github.com/ZenVoich/fuzz"
+keywords = [ "fuzz", "fuzzing", "random", "rnd", "rand" ]
+
 [dependencies]
 base = "0.7.5"
