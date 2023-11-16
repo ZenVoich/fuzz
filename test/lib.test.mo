@@ -1,18 +1,44 @@
-import Fuzz "./src";
+import Fuzz "../src";
 import Debug "mo:base/Debug";
 
 let fuzz = Fuzz.Fuzz();
+var x : Nat16 = 0;
+Debug.print(debug_show "----------------- nat16 range 0-5 -------------------");
+x := fuzz.nat16.random();
+Debug.print(debug_show x # " : " # debug_show(x / 256) # ", " # debug_show(x % 256));
+x := fuzz.nat16.random();
+Debug.print(debug_show x # " : " # debug_show(x / 256) # ", " # debug_show(x % 256));
+x := fuzz.nat16.random();
+Debug.print(debug_show x # " : " # debug_show(x / 256) # ", " # debug_show(x % 256));
+x := fuzz.nat16.random();
+Debug.print(debug_show x # " : " # debug_show(x / 256) # ", " # debug_show(x % 256));
+x := fuzz.nat16.random();
+Debug.print(debug_show x # " : " # debug_show(x / 256) # ", " # debug_show(x % 256));
+x := fuzz.nat16.random();
+Debug.print(debug_show x # " : " # debug_show(x / 256) # ", " # debug_show(x % 256));
+x := fuzz.nat16.random();
+Debug.print(debug_show x # " : " # debug_show(x / 256) # ", " # debug_show(x % 256));
+x := fuzz.nat16.random();
+Debug.print(debug_show x # " : " # debug_show(x / 256) # ", " # debug_show(x % 256));
+x := fuzz.nat16.random();
+Debug.print(debug_show x # " : " # debug_show(x / 256) # ", " # debug_show(x % 256));
+x := fuzz.nat16.random();
+Debug.print(debug_show x # " : " # debug_show(x / 256) # ", " # debug_show(x % 256));
+x := fuzz.nat16.random();
+Debug.print(debug_show x # " : " # debug_show(x / 256) # ", " # debug_show(x % 256));
+x := fuzz.nat16.random();
+Debug.print(debug_show x # " : " # debug_show(x / 256) # ", " # debug_show(x % 256));
+x := fuzz.nat16.random();
+Debug.print(debug_show x # " : " # debug_show(x / 256) # ", " # debug_show(x % 256));
+x := fuzz.nat16.random();
+Debug.print(debug_show x # " : " # debug_show(x / 256) # ", " # debug_show(x % 256));
+x := fuzz.nat16.random();
+Debug.print(debug_show x # " : " # debug_show(x / 256) # ", " # debug_show(x % 256));
+x := fuzz.nat16.random();
+Debug.print(debug_show x # " : " # debug_show(x / 256) # ", " # debug_show(x % 256));
+x := fuzz.nat16.max();
+Debug.print(debug_show x # " : " # debug_show(x / 256) # ", " # debug_show(x % 256));
 
-Debug.print(debug_show "----------------- nat8 range 0-5 -------------------");
-Debug.print(debug_show fuzz.nat8.randomRange(0, 5));
-Debug.print(debug_show fuzz.nat8.randomRange(0, 5));
-Debug.print(debug_show fuzz.nat8.randomRange(0, 5));
-Debug.print(debug_show fuzz.nat8.randomRange(0, 5));
-Debug.print(debug_show fuzz.nat8.randomRange(0, 5));
-Debug.print(debug_show fuzz.nat8.randomRange(0, 5));
-Debug.print(debug_show fuzz.nat8.randomRange(0, 5));
-Debug.print(debug_show fuzz.nat8.randomRange(0, 5));
-Debug.print(debug_show fuzz.nat8.randomRange(0, 5));
 
 Debug.print(debug_show "----------------- nat -------------------");
 Debug.print(debug_show fuzz.nat8.random());
@@ -176,8 +202,8 @@ Debug.print(debug_show "------------------- array -------------------");
 Debug.print(debug_show fuzz.array.randomArray(10, fuzz.nat8.random));
 Debug.print(debug_show fuzz.array.randomArray(10, fuzz.nat32.random));
 type MyType = {
-	x: Nat8;
-	b: Bool;
+	x : Nat8;
+	b : Bool;
 };
 let randArray = fuzz.array.randomArray<MyType>(10, func() {
 	return {
@@ -316,10 +342,26 @@ Debug.print(debug_show fuzz.blob.randomBlob(10));
 Debug.print(debug_show fuzz.blob.randomBlob(10));
 Debug.print(debug_show fuzz.blob.randomBlob(10));
 
+Debug.print(debug_show "------------------- principal.random -------------------");
+Debug.print(debug_show fuzz.principal.random());
+Debug.print(debug_show fuzz.principal.random());
+Debug.print(debug_show fuzz.principal.random());
+Debug.print(debug_show fuzz.principal.random());
+Debug.print(debug_show fuzz.principal.random());
+Debug.print(debug_show fuzz.principal.random());
+Debug.print(debug_show fuzz.principal.random());
+Debug.print(debug_show fuzz.principal.random());
+Debug.print(debug_show fuzz.principal.random());
+Debug.print(debug_show fuzz.principal.random());
+Debug.print(debug_show fuzz.principal.random());
+Debug.print(debug_show fuzz.principal.random());
+Debug.print(debug_show fuzz.principal.random());
+Debug.print(debug_show fuzz.principal.random());
+Debug.print(debug_show fuzz.principal.random());
+Debug.print(debug_show fuzz.principal.random());
+
 Debug.print(debug_show "------------------- principal.randomPrincipal -------------------");
 Debug.print(debug_show fuzz.principal.randomPrincipal(10));
 Debug.print(debug_show fuzz.principal.randomPrincipal(10));
 Debug.print(debug_show fuzz.principal.randomPrincipal(20));
 Debug.print(debug_show fuzz.principal.randomPrincipal(20));
-Debug.print(debug_show fuzz.principal.randomPrincipal(50));
-Debug.print(debug_show fuzz.principal.randomPrincipal(50));

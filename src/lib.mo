@@ -26,32 +26,32 @@ import FuzzICRC1 "./ICRC1";
 
 module Fuzz {
 	public type Fuzzer = {
-		nat: FuzzNat.FuzzNat;
-		nat8: FuzzNat8.FuzzNat8;
-		nat16: FuzzNat16.FuzzNat16;
-		nat32: FuzzNat32.FuzzNat32;
-		nat64: FuzzNat64.FuzzNat64;
-		int: FuzzInt.FuzzInt;
-		int8: FuzzInt8.FuzzInt8;
-		int16: FuzzInt16.FuzzInt16;
-		int32: FuzzInt32.FuzzInt32;
-		int64: FuzzInt64.FuzzInt64;
-		float: FuzzFloat.FuzzFloat;
-		array: FuzzArray.FuzzArray;
-		blob: FuzzBlob.FuzzBlob;
-		bool: FuzzBool.FuzzBool;
-		char: FuzzChar.FuzzChar;
-		text: FuzzText.FuzzText;
-		option: FuzzOption.FuzzOption;
-		principal: FuzzPrincipal.FuzzPrincipal;
-		icrc1: FuzzICRC1.FuzzICRC1;
+		nat : FuzzNat.FuzzNat;
+		nat8 : FuzzNat8.FuzzNat8;
+		nat16 : FuzzNat16.FuzzNat16;
+		nat32 : FuzzNat32.FuzzNat32;
+		nat64 : FuzzNat64.FuzzNat64;
+		int : FuzzInt.FuzzInt;
+		int8 : FuzzInt8.FuzzInt8;
+		int16 : FuzzInt16.FuzzInt16;
+		int32 : FuzzInt32.FuzzInt32;
+		int64 : FuzzInt64.FuzzInt64;
+		float : FuzzFloat.FuzzFloat;
+		array : FuzzArray.FuzzArray;
+		blob : FuzzBlob.FuzzBlob;
+		bool : FuzzBool.FuzzBool;
+		char : FuzzChar.FuzzChar;
+		text : FuzzText.FuzzText;
+		option : FuzzOption.FuzzOption;
+		principal : FuzzPrincipal.FuzzPrincipal;
+		icrc1 : FuzzICRC1.FuzzICRC1;
 	};
 
-	public func Fuzz(): Fuzzer {
+	public func Fuzz() : Fuzzer {
 		fromTime();
 	};
 
-	public func create(generator: Types.Generator): Fuzzer {
+	public func create(generator : Types.Generator) : Fuzzer {
 		{
 			nat = FuzzNat.FuzzNat(generator);
 			nat8 = FuzzNat8.FuzzNat8(generator);
@@ -75,15 +75,15 @@ module Fuzz {
 		};
 	};
 
-	public func fromSeed(seed: Nat): Fuzzer {
+	public func fromSeed(seed : Nat) : Fuzzer {
 		create(createGenerator(seed));
 	};
 
-	public func fromTime(): Fuzzer {
+	public func fromTime() : Fuzzer {
 		fromSeed(Int.abs(Time.now()));
 	};
 
-	public func fromBlob(blob: Blob): Fuzzer {
+	public func fromBlob(blob : Blob) : Fuzzer {
 		var seed = 1;
 		for (x in Blob.toArray(blob).vals()) {
 			seed *= Nat8.toNat(x);
@@ -91,12 +91,12 @@ module Fuzz {
 		fromSeed(seed);
 	};
 
-	public func createGenerator(seed: Nat): Types.Generator {
+	public func createGenerator(seed : Nat) : Types.Generator {
 		let prime = 456209410580464648418198177201;
 		let prime2 = 4451889979529614097557895687536048212109;
 		var prev = seed;
 		{
-			next = func(): Nat {
+			next = func() : Nat {
 				let cur = (prev * prime + 5) % prime2;
 				prev := cur;
 				cur;

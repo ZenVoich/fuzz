@@ -1,9 +1,10 @@
 [package]
 name = "fuzz"
-version = "0.1.0"
-description = "Motoko fuzzing library"
+version = "0.1.1"
+description = "Random data generator"
 repository = "https://github.com/ZenVoich/fuzz"
 keywords = [ "fuzz", "fuzzing", "random", "rnd", "rand" ]
+license = "MIT"
 
 [dependencies]
-base = "0.7.5"
+base = "0.10.2"

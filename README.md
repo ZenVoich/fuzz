@@ -31,7 +31,7 @@ let fuzz = Fuzz.fromBlob(blob);
 or provide a function that generates a random Nat
 ```motoko
 type Generator = {
-	next(): Nat;
+	next() : Nat;
 }
 let fuzz = Fuzz.create(generator);
 ```
@@ -74,8 +74,8 @@ let arrayNat8 = fuzz.array.randomArray(1000, fuzz.nat8.random);
 Generate a random array of size 500 with custom type values
 ```motoko
 type MyType = {
-	x: Nat;
-	b: Bool;
+	x : Nat;
+	b : Bool;
 };
 let randArray = fuzz.array.randomArray<MyType>(500, func() {
 	return {
@@ -124,7 +124,7 @@ Return a random aphanumeric char (`[a-zA-Z0-9]`)
 let char = fuzz.char.randomAlphanumeric();
 ```
 
-Return a random ascii char (`[a-zA-Z0-9!"#$%&'()*+,-./,':;<=>?[\]^_`{|}~]`)
+Return a random ascii char (```[a-zA-Z0-9!"#$%&'()*+,-./,':;<=>?[\]^_`{|}~]```)
 ```motoko
 let char = fuzz.char.randomAscii();
 ```

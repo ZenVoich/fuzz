@@ -23,22 +23,22 @@ module {
 		'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
 	];
 
-	public class FuzzChar(generator: Types.Generator) {
+	public class FuzzChar(generator : Types.Generator) {
 		let fuzzArray = FuzzArray.FuzzArray(generator);
 
-		public func randomAlphabetic(): Char {
+		public func randomAlphabetic() : Char {
 			fuzzArray.randomValue(alphabet);
 		};
 
-		public func randomAlphanumeric(): Char {
+		public func randomAlphanumeric() : Char {
 			fuzzArray.randomValue(alphanumeric);
 		};
 
-		public func randomAscii(): Char {
+		public func randomAscii() : Char {
 			fuzzArray.randomValue(ascii);
 		};
 
-		public func randomUnicode(set: [Char]): Char {
+		public func randomUnicode(set : [Char]) : Char {
 			fuzzArray.randomValue(set);
 		};
 	};

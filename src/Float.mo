@@ -6,24 +6,24 @@ import Types "./types";
 import {rangeFloat; makeInt} "./utils";
 
 module {
-	public class FuzzFloat(generator: Types.Generator) {
-		public func decimals(): Nat {
+	public class FuzzFloat(generator : Types.Generator) {
+		public func decimals() : Nat {
 			17;
 		};
 
-		public func min(): Float {
+		public func min() : Float {
 			Debug.trap("Float has no min value");
 		};
 
-		public func max(): Float {
+		public func max() : Float {
 			Debug.trap("Float has no max value");
 		};
 
-		public func random(): Float {
+		public func random() : Float {
 			randomRange(-4294967296, 4294967295);
 		};
 
-		public func randomRange(min: Float, max: Float): Float {
+		public func randomRange(min : Float, max : Float) : Float {
 			let randInt = makeInt(generator.next(), generator.next());
 			let float = Float.fromInt(randInt % 2 ** 64) / Float.fromInt(randInt % 2 ** 32);
 
