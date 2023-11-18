@@ -119,7 +119,7 @@ Return a random alphabetic char (`[a-zA-Z]`)
 let char = fuzz.char.randomAlphabetic();
 ```
 
-Return a random aphanumeric char (`[a-zA-Z0-9]`)
+Return a random alphanumeric char (`[a-zA-Z0-9]`)
 ```motoko
 let char = fuzz.char.randomAlphanumeric();
 ```
@@ -147,7 +147,7 @@ let text = fuzz.text.randomAlphabetic(5); // => "aadkd"
 let text = fuzz.text.randomAlphabetic(5); // => "kfiky"
 ```
 
-Return random aphanumeric text of given size (`[a-zA-Z0-9]`)
+Return random alphanumeric text of given size (`[a-zA-Z0-9]`)
 ```motoko
 let text = fuzz.text.randomAlphanumeric(3); // => "po8"
 let text = fuzz.text.randomAlphanumeric(3); // => "68r"
