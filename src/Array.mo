@@ -40,19 +40,19 @@ module {
 		public func shuffle<T>(array : [var T]) {
 
 			var i = 0;
-            var end = array.size();
+			var end = array.size();
 
 			while (i + 1 < end){
-                let start = i + 1;
-                let dist = end - start : Nat;
+				let start = i + 1;
+				let dist = end - start : Nat;
 
 				let j = if (dist == 1) start else fuzzNat.randomRange(start, end - 1 : Nat);
 
 				let tmp = array[i];
-                array[i] := array[j];
-                array[j] := tmp;
+				array[i] := array[j];
+				array[j] := tmp;
 
-                i += 1;
+				i += 1;
 			}
 		};
 	};
