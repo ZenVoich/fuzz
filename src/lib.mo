@@ -16,6 +16,7 @@ import FuzzInt32 "./Int32";
 import FuzzInt64 "./Int64";
 import FuzzFloat "./Float";
 import FuzzArray "./Array";
+import FuzzBuffer "./Buffer";
 import FuzzBlob "./Blob";
 import FuzzBool "./Bool";
 import FuzzChar "./Char";
@@ -38,6 +39,8 @@ module Fuzz {
 		int64 : FuzzInt64.FuzzInt64;
 		float : FuzzFloat.FuzzFloat;
 		array : FuzzArray.FuzzArray;
+		varArray : FuzzArray.FuzzVarArray;
+		buffer : FuzzBuffer.FuzzBuffer;
 		blob : FuzzBlob.FuzzBlob;
 		bool : FuzzBool.FuzzBool;
 		char : FuzzChar.FuzzChar;
@@ -65,6 +68,8 @@ module Fuzz {
 			int64 = FuzzInt64.FuzzInt64(generator);
 			float = FuzzFloat.FuzzFloat(generator);
 			array = FuzzArray.FuzzArray(generator);
+			varArray = FuzzArray.FuzzVarArray(generator);
+			buffer = FuzzBuffer.FuzzBuffer(generator);
 			blob = FuzzBlob.FuzzBlob(generator);
 			bool = FuzzBool.FuzzBool(generator);
 			char = FuzzChar.FuzzChar(generator);

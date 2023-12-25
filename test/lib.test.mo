@@ -1,5 +1,8 @@
 import Fuzz "../src";
+import Array "mo:base/Array";
+import Buffer "mo:base/Buffer";
 import Debug "mo:base/Debug";
+import Iter "mo:base/Iter";
 
 let fuzz = Fuzz.Fuzz();
 var x : Nat16 = 0;
@@ -213,6 +216,66 @@ let randArray = fuzz.array.randomArray<MyType>(10, func() {
 });
 
 Debug.print(debug_show randArray);
+
+Debug.print(debug_show "------------------- var array -------------------");
+Debug.print(debug_show fuzz.varArray.randomArray<Nat8>(10, fuzz.nat8.random));
+Debug.print(debug_show fuzz.varArray.randomArray<Nat32>(10, fuzz.nat32.random));
+
+let randVarArray = fuzz.varArray.randomArray<MyType>(10, func() {
+	return {
+		x = fuzz.nat8.random();
+		b = fuzz.bool.random();
+	};
+});
+
+Debug.print(debug_show randVarArray);
+
+let varArray0 = [var];
+fuzz.varArray.shuffle(varArray0);
+Debug.print("shuffle: " # debug_show varArray0);
+
+let varArray1 = Array.tabulateVar<Nat>(2, func(i: Nat): Nat = i);
+fuzz.varArray.shuffle(varArray1);
+Debug.print("shuffle: " # debug_show varArray1);
+
+let varArray2 = Array.tabulateVar<Nat>(10, func(i: Nat): Nat = i);
+fuzz.varArray.shuffle(varArray2);
+Debug.print("shuffle: " # debug_show varArray2);
+
+Debug.print(debug_show "------------------- buffer -------------------");
+
+fuzz.buffer.randomBuffer<Nat8>(10, fuzz.nat8.random) 
+|> Buffer.toArray(_) 
+|> Debug.print(debug_show(_));
+
+fuzz.buffer.randomBuffer<Nat32>(10, fuzz.nat32.random)
+|> Buffer.toArray(_)
+|> Debug.print(debug_show(_));
+
+let randBuffer = fuzz.buffer.randomBuffer<MyType>(10, func() {
+	return {
+		x = fuzz.nat8.random();
+		b = fuzz.bool.random();
+	};
+});
+
+Debug.print(debug_show Buffer.toArray(randBuffer));
+
+let orderedBuffer = Buffer.Buffer<Nat>(10);
+Debug.print("shuffle: " # debug_show Buffer.toArray(orderedBuffer));
+
+for (i in Iter.range(0, 1)) {
+	orderedBuffer.add(i);
+};
+fuzz.buffer.shuffle(orderedBuffer);
+Debug.print("shuffle: " # debug_show Buffer.toArray(orderedBuffer));
+orderedBuffer.clear();
+
+for (i in Iter.range(0, 9)) {
+	orderedBuffer.add(i);
+};
+fuzz.buffer.shuffle(orderedBuffer);
+Debug.print("shuffle: " # debug_show Buffer.toArray(orderedBuffer));
 
 Debug.print(debug_show "------------------- bool -------------------");
 Debug.print(debug_show fuzz.bool.random());
