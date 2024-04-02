@@ -244,8 +244,8 @@ Debug.print("shuffle: " # debug_show varArray2);
 
 Debug.print(debug_show "------------------- buffer -------------------");
 
-fuzz.buffer.randomBuffer<Nat8>(10, fuzz.nat8.random) 
-|> Buffer.toArray(_) 
+fuzz.buffer.randomBuffer<Nat8>(10, fuzz.nat8.random)
+|> Buffer.toArray(_)
 |> Debug.print(debug_show(_));
 
 fuzz.buffer.randomBuffer<Nat32>(10, fuzz.nat32.random)
@@ -357,15 +357,15 @@ Debug.print(debug_show fuzz.char.randomUnicode(['%', 'x', '#', 'y']));
 Debug.print(debug_show fuzz.char.randomUnicode(['%', 'x', '#', 'y']));
 
 Debug.print(debug_show "------------------- text.randomAlphabetic -------------------");
-Debug.print(debug_show fuzz.text.randomAlphabetic(20));
-Debug.print(debug_show fuzz.text.randomAlphabetic(20));
-Debug.print(debug_show fuzz.text.randomAlphabetic(20));
-Debug.print(debug_show fuzz.text.randomAlphabetic(20));
-Debug.print(debug_show fuzz.text.randomAlphabetic(20));
-Debug.print(debug_show fuzz.text.randomAlphabetic(20));
-Debug.print(debug_show fuzz.text.randomAlphabetic(20));
-Debug.print(debug_show fuzz.text.randomAlphabetic(20));
-Debug.print(debug_show fuzz.text.randomAlphabetic(20));
+Debug.print(debug_show fuzz.text.randomAlphabetic(0));
+Debug.print(debug_show fuzz.text.randomAlphabetic(1));
+Debug.print(debug_show fuzz.text.randomAlphabetic(2));
+Debug.print(debug_show fuzz.text.randomAlphabetic(3));
+Debug.print(debug_show fuzz.text.randomAlphabetic(4));
+Debug.print(debug_show fuzz.text.randomAlphabetic(5));
+Debug.print(debug_show fuzz.text.randomAlphabetic(6));
+Debug.print(debug_show fuzz.text.randomAlphabetic(7));
+Debug.print(debug_show fuzz.text.randomAlphabetic(8));
 
 Debug.print(debug_show "------------------- text.randomAlphanumeric -------------------");
 Debug.print(debug_show fuzz.text.randomAlphanumeric(33));
@@ -389,8 +389,14 @@ Debug.print(debug_show fuzz.text.randomAscii(44));
 Debug.print(debug_show fuzz.text.randomAscii(44));
 Debug.print(debug_show fuzz.text.randomAscii(44));
 
+Debug.print(debug_show "------------------- text.randomText 0..4 -------------------");
+Debug.print(debug_show fuzz.text.randomText(0));
+Debug.print(debug_show fuzz.text.randomText(1));
+Debug.print(debug_show fuzz.text.randomText(2));
+Debug.print(debug_show fuzz.text.randomText(3));
+Debug.print(debug_show fuzz.text.randomText(4));
+
 Debug.print(debug_show "------------------- text.randomText -------------------");
-Debug.print(debug_show fuzz.text.randomText(fuzz.nat.randomRange(0, 100)));
 Debug.print(debug_show fuzz.text.randomText(fuzz.nat.randomRange(0, 100)));
 Debug.print(debug_show fuzz.text.randomText(fuzz.nat.randomRange(0, 100)));
 Debug.print(debug_show fuzz.text.randomText(fuzz.nat.randomRange(0, 100)));

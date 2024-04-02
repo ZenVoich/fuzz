@@ -14,7 +14,7 @@ module {
 			let loremChars = Iter.toArray(lorem.chars());
 			let loremSize = lorem.size();
 			var result = "";
-			for (i in Iter.range(0, size)) {
+			for (i in Iter.range(0, size - 1)) {
 				result #= Char.toText(loremChars[i % loremSize]);
 			};
 			result;
@@ -38,7 +38,7 @@ module {
 
 		public func _random(size : Nat, gen : () -> Char) : Text {
 			var result = "";
-			for (i in Iter.range(0, size)) {
+			for (i in Iter.range(0, size - 1)) {
 				result #= Char.toText(gen());
 			};
 			result;
