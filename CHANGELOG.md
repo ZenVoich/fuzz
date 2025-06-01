@@ -1,3 +1,7 @@
+## 1.0.0
+- Change the default generator to the `xorshift128+` algorithm (by @tomijaga)
+- Update `base` dependency to `0.14.9`
+
 ## 0.2.1
 Fixed bug where `fuzz.text.*` had the wrong output length
 
