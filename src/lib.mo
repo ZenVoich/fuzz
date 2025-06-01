@@ -2,6 +2,7 @@ import Time "mo:base/Time";
 import Int "mo:base/Int";
 import Nat8 "mo:base/Nat8";
 import Blob "mo:base/Blob";
+import Nat64 "mo:base/Nat64";
 
 import Types "./types";
 import FuzzNat "./Nat";
@@ -97,14 +98,19 @@ module Fuzz {
 	};
 
 	public func createGenerator(seed : Nat) : Types.Generator {
-		let prime = 456209410580464648418198177201;
-		let prime2 = 4451889979529614097557895687536048212109;
-		var prev = seed;
+		var state0 : Nat64 = Nat64.fromNat(seed);
+		var state1 : Nat64 = Nat64.fromNat(seed + 1);
+		if (state0 == 0) state0 := 1;
+		if (state1 == 0) state1 := 2;
+
 		{
 			next = func() : Nat {
-				let cur = (prev * prime + 5) % prime2;
-				prev := cur;
-				cur;
+				var s1 = state0;
+				let s0 = state1;
+				state0 := s0;
+				s1 ^= s1 << 23 : Nat64;
+				state1 := s1 ^ s0 ^ (s1 >> 18 : Nat64) ^ (s0 >> 5 : Nat64);
+				Nat64.toNat(state1 +% s0);
 			};
 		};
 	};
